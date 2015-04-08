@@ -16,6 +16,23 @@
       </ul>
     </div>
   </nav>
+  
+  <% if flash[:notice] %>
+    <div class="light-green accent-3">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+      <%= flash[:notice] %>
+    </div>
+  <% elsif flash[:error] %>
+    <div class="red darken-4">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+      <%= flash[:error] %>
+    </div>
+  <% elsif flash[:alert] %>
+    <div class="yellow accent-4">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
 
   <div class="intro purple darken-2 z-depth-1">
     <h1 class="white-text">BloccitOff</h1>

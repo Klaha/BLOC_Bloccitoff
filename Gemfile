@@ -1,7 +1,15 @@
 source 'https://rubygems.org'
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+ 
+group :development do
+  gem 'sqlite3'
+end
+
 gem 'rails', '4.1.0'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -13,3 +21,6 @@ gem 'spring',        group: :development
 
 # Materialize CSS Framework
 gem 'materialize-sass'
+
+# User Authentication
+gem 'devise'

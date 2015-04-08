@@ -24,3 +24,6 @@ gem 'materialize-sass'
 
 # User Authentication
 gem 'devise'
+
+# Environment Variables
+gem 'figaro', '1.0'

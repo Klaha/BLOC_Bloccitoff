@@ -9,27 +9,29 @@
 <body>
   <nav class="teal lighten-1">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">BloccitOff</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Sign In</a></li>
-      </ul>
+      <%= link_to "BloccitOff", root_path, class: 'brand-logo' %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <% if current_user %>
+            <li><%= link_to current_user.email, edit_user_registration_path %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+        </ul>
     </div>
   </nav>
   
   <% if flash[:notice] %>
-    <div class="light-green accent-3">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    <div class="light-green accent-3" id="success">
       <%= flash[:notice] %>
     </div>
   <% elsif flash[:error] %>
     <div class="red darken-4">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
       <%= flash[:error] %>
     </div>
   <% elsif flash[:alert] %>
     <div class="yellow accent-4">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
       <%= flash[:alert] %>
     </div>
   <% end %>
@@ -37,8 +39,8 @@
   <div class="intro purple darken-2 z-depth-1">
     <h1 class="white-text">BloccitOff</h1>
     <h5 class="white-text">A self destruct to-do list to keep you focused on the things that really matter!</h5>
-    <a class="waves-effect waves-light btn">Login</a>
-    <a class="waves-effect waves-light btn">Sign In</a>
+    <%= link_to "Login", new_user_session_path, class: "waves-effect waves-light btn" %>
+    <a class="waves-effect waves-light btn">Sign Up</a>
   </div>
 
   <div class="container">

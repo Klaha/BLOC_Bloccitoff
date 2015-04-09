@@ -15,7 +15,6 @@ module DeviseHelper
 
     html = <<-HTML
     <div id="error_explanation">
-      <h5>#{sentence}</h2>
       <ul>#{messages}</ul>
     </div>
     HTML

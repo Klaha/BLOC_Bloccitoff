@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col s8 offset-s2 center-align">
+    <h4>Welcome <%= @user.email %>!</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <div class="col s6 offset-s3">
+        <ul class="js-items">
+          <%= render partial: 'items/item', collection: @items %>
+        </ul>
+      </div>
+    </div>    
+  </div>
+</div>
+
+<div class="row">
+  <div class="new-item">
+    <%= render partial: 'items/form', locals: { user: @user, item: @item } %>
+  </div>
+</div>

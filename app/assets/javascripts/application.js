@@ -13,8 +13,18 @@
 //= require jquery
 //= require materialize-sprockets
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 $(document).ready(function(){
-  $("#success").delay(5000).fadeOut('slow');
+  $("#close").click(function(){
+    $("#success").fadeOut('slow');
+  });
+
+  $("#close").click(function(){
+    $("#error").fadeOut('slow');
+  });
+
+  $("#close").click(function(){
+    $("#alert").fadeOut('slow');
+  });
+
 });

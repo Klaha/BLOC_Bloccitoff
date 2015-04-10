@@ -17,3 +17,30 @@
 .intro h5 {
   margin-bottom: 25px;
 }
+
+.close {
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+#success {
+  line-height: 28px;
+  font-weight: bold;
+  color: #3c763d;
+}
+
+#error {
+  line-height: 28px;
+  font-weight: bold;
+  color: #a94442;
+}
+
+#alert {
+  line-height: 28px;
+  font-weight: bold;
+  color: #8a6d3b;
+}

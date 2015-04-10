@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Bloccitoff</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application'%>
+  <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -24,16 +24,16 @@
   </nav>
   
   <% if flash[:notice] %>
-    <div class="light-green accent-3" id="success">
-      <%= flash[:notice] %>
+    <div class="light-green accent-1 center-align" id="success">
+      <span><%= flash[:notice] %><i class="close tiny mdi-content-clear right" id="close"></i></span>
     </div>
   <% elsif flash[:error] %>
-    <div class="red darken-4">
-      <%= flash[:error] %>
+    <div class="red lighten-3 center-align" id="error">
+      <span><%= flash[:error] %><i class="close tiny mdi-content-clear right" id="close"></i></span>
     </div>
   <% elsif flash[:alert] %>
-    <div class="yellow accent-4">
-      <%= flash[:alert] %>
+    <div class="yellow accent-4 center-align" id="alert">
+      <span><%= flash[:alert] %><i class="close tiny mdi-content-clear right" id="close"></i></span>
     </div>
   <% end %>
 

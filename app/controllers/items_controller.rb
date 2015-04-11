@@ -6,9 +6,9 @@ class ItemsController < ApplicationController
     @new_item = Item.new
 
     if @item.save
-      flash[:notice] = "Item created"
+      # flash[:notice] = "Item created"
     else
-      flash[:error] = "There was a problem saving your Item. Try again!"
+      # flash[:error] = "There was a problem saving your Item. Try again!"
     end
 
     respond_to do |format|

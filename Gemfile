@@ -28,3 +28,6 @@ gem 'devise'
 
 # Environment Variables
 gem 'figaro', '1.0'
+
+# DB Seed
+gem 'faker'

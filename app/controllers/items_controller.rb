@@ -18,6 +18,22 @@ class ItemsController < ApplicationController
 
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+
+    if @item.destroy
+      # flash[:notice] = "Item destroyed"
+    else
+      # flash[:error] = "There was a problem destroying your Item. Try again!"
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+  end
+
   private
 
   def item_params

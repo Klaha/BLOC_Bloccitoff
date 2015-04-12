@@ -27,4 +27,18 @@ $(document).ready(function(){
     $("#alert").fadeOut('slow');
   });
 
+  $(".done").click(function(){
+    if ( $(this).is(".green") ) {
+      $(this).removeClass("green").addClass("blue");
+      $(this).children("i").removeClass("mdi-action-done").addClass("mdi-content-undo");
+      $(this).parent().parent().children('div').first().children('span').addClass('strk');
+      $(this).parent().parent().children('div').last().show();
+    } else {
+      $(this).removeClass("blue").addClass("green");
+      $(this).children("i").removeClass("mdi-content-undo").addClass("mdi-action-done");
+      $(this).parent().parent().children('div').first().children('span').removeClass('strk');
+      $(this).parent().parent().children('div').last().hide();
+    }
+  });
+
 });

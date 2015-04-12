@@ -1,5 +1,21 @@
-<li>
-  <%= item.name %>
+<li id="item-<%= item.id %>">
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="col s10">
+          <span><%= item.name %></span>
+        </div>
+        <div class="col s1">
+          <a class="done btn-floating btn-small waves-effect waves-light green"><i class="mdi-action-done"></i></a>
+        </div>
+        <div class="del col s1">
+          <%= link_to user_item_path(@user, item), class: 'done btn-floating btn-small waves-effect waves-light red', method: :delete, remote: true do %>
+            <i class="mdi-action-delete"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </li>
 
 

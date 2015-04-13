@@ -52,3 +52,9 @@
 .strk {
   text-decoration: line-through;
 }
+
+@media (min-width: 601px) and (max-width: 840px) { 
+  .del {
+    margin-left: 10px;
+  }
+}

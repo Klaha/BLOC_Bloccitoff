@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Bloccitoff</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <%= stylesheet_link_tag    'application'%>
   <%= javascript_include_tag 'application'%>
   <%= csrf_meta_tags %>
@@ -9,8 +10,23 @@
 <body>
   <nav class="teal lighten-1">
     <div class="nav-wrapper">
-      <%= link_to "BloccitOff", root_path, class: 'brand-logo' %>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if current_user %>
+        <%= link_to "BloccitOff", user_path(current_user), class: 'brand-logo' %>
+      <% else %>
+        <%= link_to "BloccitOff", root_path, class: 'brand-logo' %>
+      <% end %>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        <ul class="right hide-on-med-and-down">
+          <% if current_user %>
+            <li><%= link_to "Items", user_path(current_user) %></li>
+            <li><%= link_to "Settings", edit_user_registration_path %>
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+        <ul id="mobile-demo" class="side-nav">
           <% if current_user %>
             <li><%= link_to "Items", user_path(current_user) %></li>
             <li><%= link_to "Settings", edit_user_registration_path %>
@@ -35,13 +51,19 @@
       <span><%= flash[:alert] %><i class="close tiny mdi-content-clear right" id="close"></i></span>
     </div>
   <% end %>
-
-  <div class="intro purple darken-2 z-depth-1">
-    <h1 class="white-text">BloccitOff</h1>
-    <h5 class="white-text">A self destruct to-do list to keep you focused on the things that really matter!</h5>
-    <%= link_to "Login", new_user_session_path, class: "waves-effect waves-light btn" %>
-    <%= link_to "Sign Up", new_user_registration_path, class: "waves-effect waves-light btn" %>
-  </div>
+  
+  <% if !current_user %>
+    <div class="row">
+      <div class="intro purple darken-2 z-depth-1 col s12">
+        <h1 class="white-text hide-on-small-only">BloccitOff</h1>
+        <h2 class="white-text hide-on-med-and-up">BloccitOff</h2>
+        <h5 class="white-text">A self destruct to-do list to keep you focused on the things that really matter!</h5>
+        <%= link_to "Login", new_user_session_path, class: "waves-effect waves-light btn" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "waves-effect waves-light btn" %>
+      </div>
+    </div>
+  <% end %>
+  
 
   <div class="container">
     <%= yield %>

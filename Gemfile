@@ -34,3 +34,6 @@ gem 'faker'
 
 # CRON Jobs
 gem 'whenever', :require => false
+
+# NewRelic
+gem 'newrelic_rpm'

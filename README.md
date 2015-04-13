@@ -1,4 +1,4 @@
-Blocitoff: Utility Application with Rake Automation
+Blocitoff: ToDo Utility Application with Rake Automation
 ===
 
-[Bloc](http://bloc.io).
+Made by [me :)](http://www.3libras.co.ve).

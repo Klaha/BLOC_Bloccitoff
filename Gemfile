@@ -31,3 +31,6 @@ gem 'figaro', '1.0'
 
 # DB Seed
 gem 'faker'
+
+# CRON Jobs
+gem 'whenever', :require => false
